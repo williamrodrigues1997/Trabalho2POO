@@ -1,25 +1,27 @@
 package modelo;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-
+import javax.persistence.Query;
 
 /**
  *
  * Classe responsável pelo CRUD relacionado ao POJO Paciente.
  */
 public class DAOPaciente {
-    
+
     private EntityManagerFactory emf;
     private EntityManager em;
-    
-    public void conectar(){
+
+    public void conectar() {
         this.emf = Persistence.createEntityManagerFactory("SaudeCiaJPA");
         this.em = emf.createEntityManager();
     }
-    
-    public void desconectar(){
+
+    public void desconectar() {
         this.em.close();
         this.emf.close();
     }
@@ -27,14 +29,14 @@ public class DAOPaciente {
     public void inserir(Paciente paciente) {
         em.getTransaction().begin();
         em.persist(paciente);
-        em.getTransaction().commit();        
+        em.getTransaction().commit();
     }
 
     public boolean alterar(Integer id, Paciente pacienteNovo) {
         em.getTransaction().begin();
-        Paciente paciente = new Paciente();        
+        Paciente paciente = new Paciente();
         paciente = em.find(paciente.getClass(), id);
-        if(paciente != null){
+        if (paciente != null) {
             paciente.setNome(pacienteNovo.getNome());
             paciente.setCpf(pacienteNovo.getCpf());
             paciente.setRg(pacienteNovo.getRg());
@@ -52,9 +54,9 @@ public class DAOPaciente {
 
     public boolean remover(Integer id) {
         em.getTransaction().begin();
-        Paciente paciente = new Paciente(); 
+        Paciente paciente = new Paciente();
         paciente = em.find(paciente.getClass(), id);
-        if(paciente != null){
+        if (paciente != null) {
             em.remove(paciente);
             em.getTransaction().commit();
             return true;
@@ -62,18 +64,25 @@ public class DAOPaciente {
         //Id nao encontrado
         return false;
     }
-    
-    public Paciente buscaPorId(Integer id){
+
+    public Paciente buscaPorId(Integer id) {
         em.getTransaction().begin();
-        Paciente paciente = new Paciente(); 
+        Paciente paciente = new Paciente();
         paciente = em.find(paciente.getClass(), id);
-        if(paciente != null){
+        if (paciente != null) {
             em.getTransaction().commit();
             return paciente;
         }
         //Id nao encontrado
         return null;
     }
-
+    
+    public List<Paciente> getLista(){
+        em.getTransaction().begin();
+        Query query = em.createQuery("SELECT e FROM Paciente e");
+        List<Paciente> listaDePacientes = query.getResultList();
+        em.getTransaction().commit();
+        return listaDePacientes;
+    }
 
 }

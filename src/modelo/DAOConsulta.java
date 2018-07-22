@@ -1,9 +1,12 @@
 package modelo;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 /**
  *
@@ -13,13 +16,13 @@ public class DAOConsulta {
 
     private EntityManagerFactory emf;
     private EntityManager em;
-    
-    public void conectar(){
+
+    public void conectar() {
         this.emf = Persistence.createEntityManagerFactory("SaudeCiaJPA");
         this.em = emf.createEntityManager();
     }
-    
-    public void desconectar(){
+
+    public void desconectar() {
         this.em.close();
         this.emf.close();
     }
@@ -27,14 +30,14 @@ public class DAOConsulta {
     public void inserir(Consulta consulta) {
         em.getTransaction().begin();
         em.persist(consulta);
-        em.getTransaction().commit();   
+        em.getTransaction().commit();
     }
 
     public boolean alterar(Integer id, Consulta novaConsulta) {
         em.getTransaction().begin();
         Consulta consulta = new Consulta();
         consulta = em.find(consulta.getClass(), id);
-        if( consulta != null){
+        if (consulta != null) {
             consulta.setData(novaConsulta.getData());
             consulta.setHorario(novaConsulta.getHorario());
             consulta.setMedico(novaConsulta.getMedico());
@@ -43,14 +46,14 @@ public class DAOConsulta {
             return true;
         }
         //Id nao encontrado
-        return false;        
+        return false;
     }
 
     public boolean remover(Integer id) {
         em.getTransaction().begin();
-        Consulta consulta = new Consulta(); 
+        Consulta consulta = new Consulta();
         consulta = em.find(consulta.getClass(), id);
-        if(consulta != null){
+        if (consulta != null) {
             em.remove(consulta);
             em.getTransaction().commit();
             return true;
@@ -59,15 +62,23 @@ public class DAOConsulta {
         return false;
     }
 
-    public Consulta buscaPorId(Integer id){
+    public Consulta buscaPorId(Integer id) {
         em.getTransaction().begin();
-        Consulta consulta = new Consulta(); 
+        Consulta consulta = new Consulta();
         consulta = em.find(consulta.getClass(), id);
-        if(consulta != null){
+        if (consulta != null) {
             em.getTransaction().commit();
             return consulta;
         }
         //Id nao encontrado
         return null;
+    }
+    
+    public List<Consulta> getLista(){
+        em.getTransaction().begin();
+        Query query = em.createQuery("SELECT e FROM Consulta e");
+        List<Consulta> listaDeConsultas = query.getResultList();
+        em.getTransaction().commit();
+        return listaDeConsultas;
     }
 }

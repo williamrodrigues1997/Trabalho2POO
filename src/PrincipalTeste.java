@@ -1,44 +1,42 @@
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
-import modelo.Consulta;
-import modelo.Convenio;
-import modelo.DAOConsulta;
+import java.util.List;
 import modelo.DAOPaciente;
 import modelo.Paciente;
-import modelo.TipoConsulta;
+
 
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 /**
  *
  * @author Ronny
  */
 public class PrincipalTeste {
-    public static void main(String[] args) {        
-        
-        Paciente paciente1 = new Paciente();        
-        paciente1.setNome("William");
-        paciente1.setCpf("061.973.129.05");
-        paciente1.setRg("10.072.229-1");
-        paciente1.setTipoConvenio(Convenio.PARTICULAR);
 
+    public static void main(String[] args) {
+
+        Paciente paciente1 = new Paciente();
+        paciente1.setNome("William");
+
+        Paciente paciente2 = new Paciente();
+        paciente2.setNome("Ronny");
+
+        DAOPaciente daoPaciente = new DAOPaciente();
+        daoPaciente.conectar();
         
-        Consulta consulta1 = new Consulta();
-        consulta1.setHorario("15:30");
-        consulta1.setMedico("Dr. Testando");
-        consulta1.setPaciente(paciente1);
-        consulta1.setTipo(TipoConsulta.RETORNO);
+        daoPaciente.inserir(paciente1);
+        daoPaciente.inserir(paciente2);
         
-        DAOConsulta daoConsulta = new DAOConsulta();
-        daoConsulta.conectar();
-        daoConsulta.inserir(consulta1);
-        daoConsulta.desconectar();
+        System.out.println("Teste busca: " + daoPaciente.buscaPorId(1).getNome());
+
+        List<Paciente> listaPacientes;
+        listaPacientes = daoPaciente.getLista();
+        System.out.println("\nTeste lista: " + listaPacientes.get(1).getNome());
+        System.out.println("Teste lista: " + listaPacientes.get(0).getNome());
         
+        daoPaciente.desconectar();
+
     }
 }

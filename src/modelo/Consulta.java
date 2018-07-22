@@ -4,6 +4,7 @@ import controle.Datas;
 import java.util.Date;
 import java.util.Objects;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,25 +15,30 @@ import javax.persistence.Table;
 
 /**
  *
- * Classe POJO que reresenta uma Consulta da clínica.
- * Gerenciado por uma Secretária.
+ * Classe POJO que reresenta uma Consulta da clínica. Gerenciado por uma
+ * Secretária.
  */
-
 @Entity
 @Table(name = "tbl_consulta")
 public class Consulta {
 
     //Atributos
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
+
     private Date data;
+
+    @Column(length = 20, name = "horario")
     private String horario;
+
+    @Column(length = 100, name = "medico")
     private String medico;
-    
+
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="id_paciente")
+    @JoinColumn(name = "id_paciente")
     private Paciente paciente;
+
     private TipoConsulta tipo;
 
     //Construtor
