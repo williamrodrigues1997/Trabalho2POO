@@ -1,7 +1,9 @@
 
+import controle.PacienteControle;
 import java.util.List;
 import modelo.DAOPaciente;
 import modelo.Paciente;
+import visao.frmCadastroPaciente;
 
 
 /*
@@ -16,7 +18,18 @@ import modelo.Paciente;
 public class PrincipalTeste {
 
     public static void main(String[] args) {
+        
+        DAOPaciente daoPaciente = new DAOPaciente();
+        frmCadastroPaciente visao = new frmCadastroPaciente();
+        visao.setVisible(true);
+        PacienteControle controle = new PacienteControle(daoPaciente, visao);
 
+        
+        
+        
+        
+        
+        /*
         Paciente paciente1 = new Paciente();
         paciente1.setNome("William");
 
@@ -37,6 +50,7 @@ public class PrincipalTeste {
         System.out.println("Teste lista: " + listaPacientes.get(0).getNome());
         
         daoPaciente.desconectar();
+        */
 
     }
 }
