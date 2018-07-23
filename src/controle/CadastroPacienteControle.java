@@ -13,6 +13,7 @@ import modelo.Paciente;
 import visao.FrmCadastroPaciente;
 
 public class CadastroPacienteControle {
+
     private DAOPaciente daoPaciente;
     private FrmCadastroPaciente visaoCadastroPaciente;
     private ActionListener actionListener;
@@ -23,13 +24,13 @@ public class CadastroPacienteControle {
         evtBotaoCadastrar();
         evtBotaoCancelar();
     }
-    
-    public void evtBotaoCadastrar(){
+
+    public void evtBotaoCadastrar() {
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 System.out.println("Cadastrando Paciente...");
-                
+
                 //Obtendo os dados inseridos na tela
                 String nome = visaoCadastroPaciente.getTxtNome().getText();
                 String cpf = visaoCadastroPaciente.getTxtCpf().getText();
@@ -45,7 +46,7 @@ public class CadastroPacienteControle {
                 String celular = visaoCadastroPaciente.getTxtCelular().getText();
                 String email = visaoCadastroPaciente.getTxtEmail().getText();
                 Convenio convenio = (Convenio) visaoCadastroPaciente.getCmbBoxConvenio().getSelectedItem();
-                
+
                 //Criando e persistindo um objeto com as informações
                 Paciente paciente = new Paciente();
                 paciente.setNome(nome);
@@ -56,31 +57,30 @@ public class CadastroPacienteControle {
                 paciente.setTelefoneCelular(celular);
                 paciente.setEmail(email);
                 paciente.setTipoConvenio(convenio);
-                
-                DAOPaciente daoPaciente = new DAOPaciente();
+
                 daoPaciente.conectar();
                 daoPaciente.inserir(paciente);
                 daoPaciente.desconectar();
                 JOptionPane.showMessageDialog(null, "Paciente Cadastrado com Sucesso!", "Sucesso", 1);
                 visaoCadastroPaciente.dispose();
-                
+
             }
         };
         visaoCadastroPaciente.getBtnCadastrar().addActionListener(actionListener);
     }
-    
-    public void evtBotaoCancelar(){
+
+    public void evtBotaoCancelar() {
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 int opcao = JOptionPane.showConfirmDialog(null, "Deseja cancelar o cadastro?", "Confirmação", JOptionPane.YES_NO_OPTION);
-                if(opcao == 0){
+                if (opcao == 0) {
                     visaoCadastroPaciente.dispose();
                 }
-                
+
             }
         };
         visaoCadastroPaciente.getBtnCancelar().addActionListener(actionListener);
     }
-    
+
 }

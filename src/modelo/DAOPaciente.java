@@ -1,6 +1,5 @@
 package modelo;
 
-import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -76,10 +75,25 @@ public class DAOPaciente {
         //Id nao encontrado
         return null;
     }
-    
-    public List<Paciente> getLista(){
+
+    public Paciente buscaPorCpf(String cpf) {
+        List<Paciente> listaDePacientes = getLista();
+        int tam = listaDePacientes.size();
+        if (tam > 0) {
+            for (Paciente paciente : listaDePacientes) {
+                if (paciente.getCpf().equals(cpf)) {
+                    return paciente;
+                }
+            }
+            return null;
+        }else{
+            return null;
+        }
+    }
+
+    public List<Paciente> getLista() {        
         em.getTransaction().begin();
-        Query query = em.createQuery("SELECT e FROM Paciente e");
+        Query query = em.createQuery("select p from Paciente p");
         List<Paciente> listaDePacientes = query.getResultList();
         em.getTransaction().commit();
         return listaDePacientes;

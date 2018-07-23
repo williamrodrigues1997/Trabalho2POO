@@ -35,6 +35,7 @@ public class FrmSecretaria extends javax.swing.JFrame {
         btnPacientesCadastrados = new javax.swing.JButton();
         btnConsultasAgendadas = new javax.swing.JButton();
         lblTitulo = new javax.swing.JLabel();
+        btnFechar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,6 +49,8 @@ public class FrmSecretaria extends javax.swing.JFrame {
 
         lblTitulo.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         lblTitulo.setText("Saúde & Cia - Secretária");
+
+        btnFechar.setText("Fechar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -66,6 +69,10 @@ public class FrmSecretaria extends javax.swing.JFrame {
                             .addComponent(btnAgendarConsulta)
                             .addComponent(btnConsultasAgendadas))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnFechar)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -80,7 +87,9 @@ public class FrmSecretaria extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnConsultasAgendadas)
                     .addComponent(btnPacientesCadastrados))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                .addComponent(btnFechar)
+                .addContainerGap())
         );
 
         pack();
@@ -125,6 +134,7 @@ public class FrmSecretaria extends javax.swing.JFrame {
     private javax.swing.JButton btnAgendarConsulta;
     private javax.swing.JButton btnCadastrarPaciente;
     private javax.swing.JButton btnConsultasAgendadas;
+    private javax.swing.JButton btnFechar;
     private javax.swing.JButton btnPacientesCadastrados;
     private javax.swing.JLabel lblTitulo;
     // End of variables declaration//GEN-END:variables
@@ -143,6 +153,10 @@ public class FrmSecretaria extends javax.swing.JFrame {
 
     public JButton getBtnPacientesCadastrados() {
         return btnPacientesCadastrados;
+    }
+
+    public JButton getBtnFechar() {
+        return btnFechar;
     }
 
     

@@ -35,7 +35,7 @@ public class Consulta {
     @Column(length = 100, name = "medico")
     private String medico;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "id_paciente")
     private Paciente paciente;
 
