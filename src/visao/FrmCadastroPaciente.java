@@ -7,18 +7,20 @@ package visao;
 
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JTextField;
 import modelo.Convenio;
 
 /**
  *
  * @author William
  */
-public class frmCadastroPaciente extends javax.swing.JFrame {
+public class FrmCadastroPaciente extends javax.swing.JFrame {
 
     /**
      * Creates new form frmCadastroPaciente
      */
-    public frmCadastroPaciente() {
+    public FrmCadastroPaciente() {
         initComponents();
         setLocationRelativeTo(null);
         
@@ -199,20 +201,21 @@ public class frmCadastroPaciente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(frmCadastroPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmCadastroPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(frmCadastroPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmCadastroPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(frmCadastroPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmCadastroPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(frmCadastroPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmCadastroPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new frmCadastroPaciente().setVisible(true);
+                new FrmCadastroPaciente().setVisible(true);
             }
         });
     }
@@ -246,6 +249,40 @@ public class frmCadastroPaciente extends javax.swing.JFrame {
     public JButton getBtnCancelar() {
         return btnCancelar;
     }
+
+    public JComboBox<Convenio> getCmbBoxConvenio() {
+        return cmbBoxConvenio;
+    }
+
+    public JTextField getTxtCelular() {
+        return txtCelular;
+    }
+
+    public JTextField getTxtCpf() {
+        return txtCpf;
+    }
+
+    public JTextField getTxtDataNasc() {
+        return txtDataNasc;
+    }
+
+    public JTextField getTxtEmail() {
+        return txtEmail;
+    }
+
+    public JTextField getTxtEndereco() {
+        return txtEndereco;
+    }
+
+    public JTextField getTxtNome() {
+        return txtNome;
+    }
+
+    public JTextField getTxtRg() {
+        return txtRg;
+    }
+
+    
 
     
 }
