@@ -1,7 +1,5 @@
 package modelo;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -33,10 +31,10 @@ public class DAOConsulta {
         em.getTransaction().commit();
     }
 
-    public boolean alterar(Integer id, Consulta novaConsulta) {
+    public boolean alterar(Consulta novaConsulta) {
         em.getTransaction().begin();
         Consulta consulta = new Consulta();
-        consulta = em.find(consulta.getClass(), id);
+        consulta = em.find(consulta.getClass(), novaConsulta.getId());
         if (consulta != null) {
             consulta.setData(novaConsulta.getData());
             consulta.setHorario(novaConsulta.getHorario());

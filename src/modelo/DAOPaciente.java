@@ -31,10 +31,10 @@ public class DAOPaciente {
         em.getTransaction().commit();
     }
 
-    public boolean alterar(Integer id, Paciente pacienteNovo) {
+    public boolean alterar(Paciente pacienteNovo) {
         em.getTransaction().begin();
         Paciente paciente = new Paciente();
-        paciente = em.find(paciente.getClass(), id);
+        paciente = em.find(paciente.getClass(), pacienteNovo.getId());
         if (paciente != null) {
             paciente.setNome(pacienteNovo.getNome());
             paciente.setCpf(pacienteNovo.getCpf());
