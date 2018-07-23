@@ -6,6 +6,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import modelo.DAOPaciente;
 import modelo.Paciente;
+import visao.FrmCadastroPaciente;
 import visao.FrmEditarPaciente;
 import visao.FrmListagemPacientes;
 
@@ -23,6 +24,7 @@ public class ListagemPacientesControle {
         evtBotaoEditar();
         evtBotaoAtualizar();
         evtBotaoExcluir();
+        evtBotaoNovo();
     }
 
     public void preencheTabela() {
@@ -127,6 +129,18 @@ public class ListagemPacientesControle {
             }
         };
         visaoListagem.getBtnExcluir().addActionListener(actionListener);
+    }
+    
+    public void evtBotaoNovo(){
+        actionListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                FrmCadastroPaciente formCadastroPaciente = new FrmCadastroPaciente();
+                CadastroPacienteControle controlePaciente = new CadastroPacienteControle(daoPaciente, formCadastroPaciente);
+                formCadastroPaciente.setVisible(true);
+            }
+        };
+        visaoListagem.getBtnNovo().addActionListener(actionListener);
     }
 
 }

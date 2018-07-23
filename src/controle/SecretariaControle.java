@@ -30,7 +30,6 @@ public class SecretariaControle {
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                daoPaciente = new DAOPaciente();
                 FrmCadastroPaciente formCadastroPaciente = new FrmCadastroPaciente();
                 CadastroPacienteControle controlePaciente = new CadastroPacienteControle(daoPaciente, formCadastroPaciente);
                 formCadastroPaciente.setVisible(true);
@@ -43,7 +42,6 @@ public class SecretariaControle {
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                daoPaciente = new DAOPaciente();
                 FrmListagemPacientes formListagemPacientes = new FrmListagemPacientes();
                 ListagemPacientesControle controleListagem = new ListagemPacientesControle(daoPaciente, formListagemPacientes);
                 formListagemPacientes.setVisible(true);

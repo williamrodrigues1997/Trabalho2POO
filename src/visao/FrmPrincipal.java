@@ -35,6 +35,8 @@ public class FrmPrincipal extends javax.swing.JFrame {
         lblTitulo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Inicial");
+        setResizable(false);
 
         btnSecretaria.setText("Secretária");
 

@@ -20,7 +20,7 @@ import javax.persistence.Temporal;
  */
 
 @Entity
-@Table(name = "tbl_consulta")
+@Table(name = "tbl_prontuario")
 public class Prontuario {
 
     //Atributos

@@ -36,8 +36,12 @@ public class FrmSecretaria extends javax.swing.JFrame {
         btnConsultasAgendadas = new javax.swing.JButton();
         lblTitulo = new javax.swing.JLabel();
         btnFechar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setTitle("Secretária");
+        setResizable(false);
 
         btnCadastrarPaciente.setText("Cadastrar Paciente");
 
@@ -52,6 +56,10 @@ public class FrmSecretaria extends javax.swing.JFrame {
 
         btnFechar.setText("Fechar");
 
+        jLabel1.setText("Gerenciar Pacientes");
+
+        jLabel2.setText("Gerenciar Consultas");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -60,15 +68,15 @@ public class FrmSecretaria extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblTitulo)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnCadastrarPaciente)
-                            .addComponent(btnPacientesCadastrados))
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnAgendarConsulta)
-                            .addComponent(btnConsultasAgendadas))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnCadastrarPaciente)
+                    .addComponent(btnPacientesCadastrados)
+                    .addComponent(jLabel1))
+                .addGap(8, 8, 8)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(btnAgendarConsulta)
+                    .addComponent(btnConsultasAgendadas))
+                .addGap(0, 16, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnFechar)
@@ -81,13 +89,17 @@ public class FrmSecretaria extends javax.swing.JFrame {
                 .addComponent(lblTitulo)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCadastrarPaciente)
                     .addComponent(btnAgendarConsulta))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnConsultasAgendadas)
-                    .addComponent(btnPacientesCadastrados))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
+                    .addComponent(btnPacientesCadastrados)
+                    .addComponent(btnConsultasAgendadas))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(btnFechar)
                 .addContainerGap())
         );
@@ -136,6 +148,8 @@ public class FrmSecretaria extends javax.swing.JFrame {
     private javax.swing.JButton btnConsultasAgendadas;
     private javax.swing.JButton btnFechar;
     private javax.swing.JButton btnPacientesCadastrados;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel lblTitulo;
     // End of variables declaration//GEN-END:variables
 
