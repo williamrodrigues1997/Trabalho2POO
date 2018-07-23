@@ -5,7 +5,6 @@ import java.awt.event.ActionListener;
 import modelo.DAOConsulta;
 import modelo.DAOPaciente;
 import visao.FrmSecretaria;
-import visao.FrmCadastroPaciente;
 import visao.FrmPrincipal;
 
 public class PrincipalControle {

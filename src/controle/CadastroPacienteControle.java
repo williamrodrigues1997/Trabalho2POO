@@ -77,7 +77,6 @@ public class CadastroPacienteControle {
                 if (opcao == 0) {
                     visaoCadastroPaciente.dispose();
                 }
-
             }
         };
         visaoCadastroPaciente.getBtnCancelar().addActionListener(actionListener);

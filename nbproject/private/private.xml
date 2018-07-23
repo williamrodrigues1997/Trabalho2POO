@@ -3,13 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Desktop/Trabalho%202%20POO/TrabalhoPOO2/src/visao/FrmCadastroPaciente.java</file>
+            <file>file:/D:/Desktop/Trabalho%202%20POO/TrabalhoPOO2/src/controle/EditarPacienteControle.java</file>
             <file>file:/D:/Desktop/Trabalho%202%20POO/TrabalhoPOO2/src/visao/FrmListagemPacientes.java</file>
             <file>file:/D:/Desktop/Trabalho%202%20POO/TrabalhoPOO2/src/controle/SecretariaControle.java</file>
             <file>file:/D:/Desktop/Trabalho%202%20POO/TrabalhoPOO2/src/modelo/DAOPaciente.java</file>
-            <file>file:/D:/Desktop/Trabalho%202%20POO/TrabalhoPOO2/src/visao/FrmCadastroConsulta.java</file>
+            <file>file:/D:/Desktop/Trabalho%202%20POO/TrabalhoPOO2/src/controle/CadastroConsultaControle.java</file>
+            <file>file:/D:/Desktop/Trabalho%202%20POO/TrabalhoPOO2/src/modelo/Convenio.java</file>
+            <file>file:/D:/Desktop/Trabalho%202%20POO/TrabalhoPOO2/src/visao/FrmEditarPaciente.java</file>
             <file>file:/D:/Desktop/Trabalho%202%20POO/TrabalhoPOO2/src/controle/ListagemPacientesControle.java</file>
             <file>file:/D:/Desktop/Trabalho%202%20POO/TrabalhoPOO2/src/controle/PrincipalControle.java</file>
+            <file>file:/D:/Desktop/Trabalho%202%20POO/TrabalhoPOO2/src/modelo/Paciente.java</file>
             <file>file:/D:/Desktop/Trabalho%202%20POO/TrabalhoPOO2/src/controle/CadastroPacienteControle.java</file>
         </group>
     </open-files>

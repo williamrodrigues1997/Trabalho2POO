@@ -3,14 +3,19 @@ package modelo;
 import controle.Datas;
 import java.util.Date;
 import java.util.Objects;
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -26,6 +31,8 @@ public class Consulta {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
+    @Basic
+    @Temporal(TemporalType.DATE)
     private Date data;
 
     @Column(length = 20, name = "horario")
@@ -38,6 +45,7 @@ public class Consulta {
     @JoinColumn(name = "id_paciente")
     private Paciente paciente;
 
+    @Enumerated(EnumType.ORDINAL)
     private TipoConsulta tipo;
 
     //Construtor

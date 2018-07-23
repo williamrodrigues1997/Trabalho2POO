@@ -3,12 +3,17 @@ package modelo;
 import controle.Datas;
 import java.util.Date;
 import java.util.Objects;
+import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
@@ -35,6 +40,8 @@ public class Paciente {
     private String rg;
     
     @Column(name = "data_nascimento")
+    @Basic
+    @Temporal(TemporalType.DATE)
     private Date dataNascimento;
     
     @Column(length = 150, name = "endereco")
@@ -46,6 +53,7 @@ public class Paciente {
     @Column(length = 100, name = "email")
     private String email;
     
+    @Enumerated(EnumType.ORDINAL)
     private Convenio tipoConvenio;
 
     //Construtor
