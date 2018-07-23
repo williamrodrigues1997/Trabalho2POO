@@ -11,6 +11,7 @@ public class PrincipalTeste {
         PrincipalControle controlePrincipal = new PrincipalControle(formPrincipal);
         formPrincipal.setVisible(true);
 
+        
     }
 
 }

@@ -2,6 +2,7 @@ package controle;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import modelo.DAOConsulta;
 import modelo.DAOPaciente;
 import visao.FrmSecretaria;
 import visao.FrmCadastroPaciente;
@@ -22,7 +23,9 @@ public class PrincipalControle {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 FrmSecretaria formSecretaria = new FrmSecretaria();
-                SecretariaControle secretariaControle = new SecretariaControle(formSecretaria);
+                DAOPaciente daoPaciente = new DAOPaciente();
+                DAOConsulta daoConsulta = new DAOConsulta();
+                SecretariaControle secretariaControle = new SecretariaControle(daoPaciente, daoConsulta, formSecretaria);
                 formSecretaria.setVisible(true);
             }
         };

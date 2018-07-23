@@ -7,30 +7,50 @@ import modelo.DAOPaciente;
 import visao.FrmCadastroConsulta;
 import visao.FrmSecretaria;
 import visao.FrmCadastroPaciente;
+import visao.FrmListagemPacientes;
 
 public class SecretariaControle {
 
+    private DAOPaciente daoPaciente;
+    private DAOConsulta daoConsulta;
     private FrmSecretaria visaoSecretaria;
     private ActionListener actionListener;
 
-    public SecretariaControle(FrmSecretaria visaoSecretaria) {
+    public SecretariaControle(DAOPaciente daoPaciente, DAOConsulta daoConsulta, FrmSecretaria visaoSecretaria) {
+        this.daoPaciente = daoPaciente;
+        this.daoConsulta = daoConsulta;
         this.visaoSecretaria = visaoSecretaria;
         evtBotaoCadastrarPaciente();
         evtBotaoFechar();
         evtBotaoAgendarConsulta();
+        evtBotaoPacientesCadastrados();
     }
 
     public void evtBotaoCadastrarPaciente() {
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                DAOPaciente daoPaciente = new DAOPaciente();
+                daoPaciente = new DAOPaciente();
                 FrmCadastroPaciente formCadastroPaciente = new FrmCadastroPaciente();
                 CadastroPacienteControle controlePaciente = new CadastroPacienteControle(daoPaciente, formCadastroPaciente);
                 formCadastroPaciente.setVisible(true);
             }
         };
         visaoSecretaria.getBtnCadastrarPaciente().addActionListener(actionListener);
+    }
+    
+    public void evtBotaoPacientesCadastrados(){
+        actionListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                daoPaciente = new DAOPaciente();
+                FrmListagemPacientes formListagemPacientes = new FrmListagemPacientes();
+                ListagemPacientesControle controleListagem = new ListagemPacientesControle(daoPaciente, formListagemPacientes);
+                formListagemPacientes.setVisible(true);
+                
+            }
+        };
+        visaoSecretaria.getBtnPacientesCadastrados().addActionListener(actionListener);
     }
 
     public void evtBotaoAgendarConsulta() {
