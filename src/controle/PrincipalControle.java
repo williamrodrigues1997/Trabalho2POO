@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import modelo.DAOConsulta;
 import modelo.DAOPaciente;
+import visao.FrmMedico;
 import visao.FrmSecretaria;
 import visao.FrmPrincipal;
 
@@ -15,6 +16,7 @@ public class PrincipalControle {
     public PrincipalControle(FrmPrincipal visaoPrincipal) {
         this.visaoPrincipal = visaoPrincipal;
         evtBotaoSecretaria();
+        evtBotaoMedico();
     }
 
     private void evtBotaoSecretaria() {
@@ -29,6 +31,21 @@ public class PrincipalControle {
             }
         };
         visaoPrincipal.getBtnSecretaria().addActionListener(actionListener);
+    }
+
+    public void evtBotaoMedico() {
+        actionListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                FrmMedico formMedico = new FrmMedico();
+                DAOPaciente daoPaciente = new DAOPaciente();
+                DAOConsulta daoConsulta = new DAOConsulta();
+
+                MedicoControle medicoControle = new MedicoControle(daoPaciente, daoConsulta, formMedico);
+                formMedico.setVisible(true);
+            }
+        };
+        visaoPrincipal.getBtnMedico().addActionListener(actionListener);
     }
 
 }
