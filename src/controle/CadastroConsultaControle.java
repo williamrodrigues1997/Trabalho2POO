@@ -1,5 +1,6 @@
 package controle;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
@@ -39,7 +40,7 @@ public class CadastroConsultaControle {
                 try {
                     data = Datas.formatoData.parse(dataString);
                 } catch (ParseException ex) {
-                    Logger.getLogger(CadastroConsultaControle.class.getName()).log(Level.SEVERE, null, ex);
+                    System.out.println("Erro na conversão (String para Date) formato digitado é incorreto.");
                 }
                 String horario = visaoCadastroConsulta.getTxtHorario().getText();
                 String medico = visaoCadastroConsulta.getTxtMedico().getText();
@@ -56,17 +57,62 @@ public class CadastroConsultaControle {
                 consulta.setHorario(horario);
                 consulta.setMedico(medico);
                 consulta.setPaciente(paciente);
-                System.out.println("ID: " + paciente.getId());
                 consulta.setTipo(tipoConsulta);
 
-                daoConsulta.conectar();
-                daoConsulta.inserir(consulta);
-                daoConsulta.desconectar();
-                JOptionPane.showMessageDialog(null, "Consulta Agendada com Sucesso!", "Sucesso", 1);
-                visaoCadastroConsulta.dispose();
+                if (validaCadastroConsulta(consulta)) {
+                    daoConsulta.conectar();
+                    daoConsulta.inserir(consulta);
+                    daoConsulta.desconectar();
+                    JOptionPane.showMessageDialog(null, "Consulta Agendada com Sucesso!", "Sucesso", 1);
+                    visaoCadastroConsulta.dispose();
+                }
             }
         };
         visaoCadastroConsulta.getBtnAgendar().addActionListener(actionListener);
+    }
+
+    private boolean validaCadastroConsulta(Consulta consulta) {
+        
+        restauraCorCampos();
+        
+        if(consulta.getData() == null){
+            JOptionPane.showMessageDialog(null, "O campo 'Data' é obrigatóorio!"
+                    + "\nFormato correto de data: Dia/Mês/Ano", "Erro na Validação", 0);
+            visaoCadastroConsulta.getTxtData().requestFocus();
+            visaoCadastroConsulta.getTxtData().setBackground(Color.yellow);
+            return false;
+        }
+        
+        if(consulta.getHorario().equals("")){
+            JOptionPane.showMessageDialog(null, "O campo 'Horário' é obrigatóorio!", "Erro na Validação", 0);
+            visaoCadastroConsulta.getTxtHorario().requestFocus();
+            visaoCadastroConsulta.getTxtHorario().setBackground(Color.yellow);
+            return false;
+        }
+        
+        if(consulta.getMedico().equals("")){
+            JOptionPane.showMessageDialog(null, "O campo 'Médico' é obrigatóorio!", "Erro na Validação", 0);
+            visaoCadastroConsulta.getTxtMedico().requestFocus();
+            visaoCadastroConsulta.getTxtMedico().setBackground(Color.yellow);
+            return false;
+        }
+        
+        if(consulta.getPaciente() == null){
+            JOptionPane.showMessageDialog(null, "O campo 'CPF Paciente' é obrigatóorio! "
+                    + "\nInforme o CPF de um Paciente já cadastrado no sistema.", "Erro na Validação", 0);
+            visaoCadastroConsulta.getTxtHorario().requestFocus();
+            visaoCadastroConsulta.getTxtHorario().setBackground(Color.yellow);
+            return false;
+        }
+        
+        return true;
+    }
+    
+    private void restauraCorCampos(){
+        visaoCadastroConsulta.getTxtData().setBackground(Color.white);
+        visaoCadastroConsulta.getTxtHorario().setBackground(Color.white);
+        visaoCadastroConsulta.getTxtMedico().setBackground(Color.white);
+        visaoCadastroConsulta.getTxtPaciente().setBackground(Color.white);
     }
 
     private void evtBotaoCancelar() {

@@ -1,5 +1,6 @@
 package controle;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
@@ -29,7 +30,6 @@ public class CadastroPacienteControle {
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                System.out.println("Cadastrando Paciente...");
 
                 //Obtendo os dados inseridos na tela
                 String nome = visaoCadastroPaciente.getTxtNome().getText();
@@ -40,7 +40,7 @@ public class CadastroPacienteControle {
                 try {
                     dataNasc = Datas.formatoData.parse(dataString);
                 } catch (ParseException ex) {
-                    Logger.getLogger(CadastroPacienteControle.class.getName()).log(Level.SEVERE, null, ex);
+                    System.out.println("Erro na conversão (String para Date) formato digitado é incorreto.");
                 }
                 String endereco = visaoCadastroPaciente.getTxtEndereco().getText();
                 String celular = visaoCadastroPaciente.getTxtCelular().getText();
@@ -58,15 +58,68 @@ public class CadastroPacienteControle {
                 paciente.setEmail(email);
                 paciente.setTipoConvenio(convenio);
 
-                daoPaciente.conectar();
-                daoPaciente.inserir(paciente);
-                daoPaciente.desconectar();
-                JOptionPane.showMessageDialog(null, "Paciente Cadastrado com Sucesso!", "Sucesso", 1);
-                visaoCadastroPaciente.dispose();
+                if (validaCadastroPaciente(paciente)) {
+                    daoPaciente.conectar();
+                    daoPaciente.inserir(paciente);
+                    daoPaciente.desconectar();
+                    JOptionPane.showMessageDialog(null, "Paciente Cadastrado com Sucesso!", "Sucesso", 1);
+                    visaoCadastroPaciente.dispose();
+                }
 
             }
         };
         visaoCadastroPaciente.getBtnCadastrar().addActionListener(actionListener);
+    }
+
+    private boolean validaCadastroPaciente(Paciente paciente) {
+        
+        restauraCorCampos();
+        
+        if (paciente.getNome().equals("")) {
+            JOptionPane.showMessageDialog(null, "O campo 'Nome' é obrigatóorio!", "Erro na Validação", 0);
+            visaoCadastroPaciente.getTxtNome().requestFocus();
+            visaoCadastroPaciente.getTxtNome().setBackground(Color.yellow);
+            return false;
+        }
+        if (paciente.getCpf().equals("")) {
+            JOptionPane.showMessageDialog(null, "O campo 'CPF' é obrigatóorio!", "Erro na Validação", 0);
+            visaoCadastroPaciente.getTxtCpf().requestFocus();
+            visaoCadastroPaciente.getTxtCpf().setBackground(Color.yellow);
+            return false;
+        }
+        if (paciente.getRg().equals("")) {
+            JOptionPane.showMessageDialog(null, "O campo 'RG' é obrigatóorio!", "Erro na Validação", 0);
+            visaoCadastroPaciente.getTxtRg().requestFocus();
+            visaoCadastroPaciente.getTxtRg().setBackground(Color.yellow);
+            return false;
+        }
+
+        if (paciente.getDataNascimento() == null) {
+            JOptionPane.showMessageDialog(null, "O campo 'Data de Nascimento' é obrigatóorio!"
+                    + "\nFormato correto de data: Dia/Mês/Ano", "Erro na Validação", 0);
+            visaoCadastroPaciente.getTxtDataNasc().requestFocus();
+            visaoCadastroPaciente.getTxtDataNasc().setBackground(Color.yellow);
+            return false;
+        }
+
+        if (paciente.getEndereco().equals("")) {
+            JOptionPane.showMessageDialog(null, "O campo 'Endereço' é obrigatóorio!", "Erro na Validação", 0);
+            visaoCadastroPaciente.getTxtEndereco().requestFocus();
+            visaoCadastroPaciente.getTxtEndereco().setBackground(Color.yellow);
+            return false;
+        }
+
+        return true;
+    }
+    
+    private void restauraCorCampos(){
+        visaoCadastroPaciente.getTxtNome().setBackground(Color.white);
+        visaoCadastroPaciente.getTxtCpf().setBackground(Color.white);
+        visaoCadastroPaciente.getTxtRg().setBackground(Color.white);
+        visaoCadastroPaciente.getTxtDataNasc().setBackground(Color.white);
+        visaoCadastroPaciente.getTxtEndereco().setBackground(Color.white);
+        visaoCadastroPaciente.getTxtCelular().setBackground(Color.white);
+        visaoCadastroPaciente.getTxtEmail().setBackground(Color.white);
     }
 
     private void evtBotaoCancelar() {

@@ -41,6 +41,7 @@ public class FrmMensagensEnviadas extends javax.swing.JFrame {
         lblTitulo.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         lblTitulo.setText("Enviando Mensagens...");
 
+        txtAreaInfo.setEditable(false);
         txtAreaInfo.setColumns(20);
         txtAreaInfo.setRows(5);
         jScrollPane1.setViewportView(txtAreaInfo);
