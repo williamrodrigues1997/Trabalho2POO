@@ -7,6 +7,7 @@ import modelo.DAOPaciente;
 import visao.FrmCadastroConsulta;
 import visao.FrmSecretaria;
 import visao.FrmCadastroPaciente;
+import visao.FrmEnviarMensagens;
 import visao.FrmGerarRelatorioConsultas;
 import visao.FrmListagemConsultas;
 import visao.FrmListagemPacientes;
@@ -28,6 +29,7 @@ public class SecretariaControle {
         evtBotaoPacientesCadastrados();
         evtBotaoConsultasAgendadas();
         evtBotaoRelatorioConsultas();
+        evtBotaoEnviarMensagens();
     }
 
     private void evtBotaoCadastrarPaciente() {
@@ -41,21 +43,21 @@ public class SecretariaControle {
         };
         visaoSecretaria.getBtnCadastrarPaciente().addActionListener(actionListener);
     }
-    
-    private void evtBotaoPacientesCadastrados(){
+
+    private void evtBotaoPacientesCadastrados() {
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 FrmListagemPacientes formListagemPacientes = new FrmListagemPacientes();
                 ListagemPacientesControle controleListagem = new ListagemPacientesControle(daoPaciente, formListagemPacientes);
                 formListagemPacientes.setVisible(true);
-                
+
             }
         };
         visaoSecretaria.getBtnPacientesCadastrados().addActionListener(actionListener);
     }
-    
-    private void evtBotaoConsultasAgendadas(){
+
+    private void evtBotaoConsultasAgendadas() {
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -89,17 +91,29 @@ public class SecretariaControle {
         };
         visaoSecretaria.getBtnFechar().addActionListener(actionListener);
     }
-    
-    private void evtBotaoRelatorioConsultas(){
+
+    private void evtBotaoRelatorioConsultas() {
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
                 FrmGerarRelatorioConsultas formGerarRelatorioConsulta = new FrmGerarRelatorioConsultas();
-                GerarRelatorioConsultasControle controleGerar = new GerarRelatorioConsultasControle(formGerarRelatorioConsulta);
+                GerarRelatorioConsultasControle controleGerar = new GerarRelatorioConsultasControle(daoConsulta, formGerarRelatorioConsulta);
                 formGerarRelatorioConsulta.setVisible(true);
-                
+
             }
         };
         visaoSecretaria.getBtnRelatorioConsultas().addActionListener(actionListener);
+    }
+
+    private void evtBotaoEnviarMensagens() {
+        actionListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                FrmEnviarMensagens formEnviarMensagens = new FrmEnviarMensagens();
+                EnviarMensagensControle contreoleEnviar = new EnviarMensagensControle(formEnviarMensagens, daoPaciente, daoConsulta);
+                formEnviarMensagens.setVisible(true);
+            }
+        };
+        visaoSecretaria.getBtnEnviarMensagens().addActionListener(actionListener);
     }
 }

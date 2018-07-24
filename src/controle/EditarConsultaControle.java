@@ -26,8 +26,8 @@ public class EditarConsultaControle {
         evtBotaoCancelar();
         evtBotaoSalvar();
     }
-    
-    private void evtBotaoCancelar(){
+
+    private void evtBotaoCancelar() {
         actionlistener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -39,8 +39,8 @@ public class EditarConsultaControle {
         };
         visaoEditarConsulta.getBtnCancelar().addActionListener(actionlistener);
     }
-    
-    private void evtBotaoSalvar(){
+
+    private void evtBotaoSalvar() {
         actionlistener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -51,14 +51,14 @@ public class EditarConsultaControle {
                 } catch (ParseException ex) {
                     Logger.getLogger(EditarPacienteControle.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                String horario = visaoEditarConsulta.getTxtHorario().getText();                
+                String horario = visaoEditarConsulta.getTxtHorario().getText();
                 String medico = visaoEditarConsulta.getTxtMedico().getText();
                 String cpfString = visaoEditarConsulta.getTxtCpfPaciente().getText();
                 DAOPaciente daoPaciente = new DAOPaciente();
                 daoPaciente.conectar();
-                Paciente paciente = daoPaciente.buscaPorCpf(cpfString);                
+                Paciente paciente = daoPaciente.buscaPorCpf(cpfString);
                 TipoConsulta tipoConsulta = (TipoConsulta) visaoEditarConsulta.getCmbBoxTipoConsulta().getSelectedItem();
-                
+
                 Consulta novaConsulta = new Consulta();
                 novaConsulta.setId(id);
                 novaConsulta.setData(data);
@@ -66,14 +66,14 @@ public class EditarConsultaControle {
                 novaConsulta.setMedico(medico);
                 novaConsulta.setPaciente(paciente);
                 novaConsulta.setTipo(tipoConsulta);
-                
+
                 daoConsulta.conectar();
                 daoConsulta.alterar(novaConsulta);
                 daoConsulta.desconectar();
                 daoPaciente.desconectar();
-                JOptionPane.showMessageDialog(null, "Consulta Editada com Sucesso!", "Sucesso", 1);                
+                JOptionPane.showMessageDialog(null, "Consulta Editada com Sucesso!", "Sucesso", 1);
                 visaoEditarConsulta.dispose();
-                
+
             }
         };
         visaoEditarConsulta.getBtnSalvar().addActionListener(actionlistener);

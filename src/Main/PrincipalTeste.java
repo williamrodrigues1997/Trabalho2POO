@@ -9,7 +9,7 @@ public class PrincipalTeste {
         
         FrmPrincipal formPrincipal = new FrmPrincipal();
         PrincipalControle controlePrincipal = new PrincipalControle(formPrincipal);
-        formPrincipal.setVisible(true);        
+        formPrincipal.setVisible(true);
         
     }
 

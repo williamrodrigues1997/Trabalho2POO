@@ -4,8 +4,8 @@ import java.text.SimpleDateFormat;
 
 /**
  *
- * Definição de variáveis estáticas para uso geral no sistema no tratamento
- * de formtatos de Datas.
+ * Definição de variáveis estáticas para uso geral no sistema no tratamento de
+ * formtatos de Datas.
  */
 public class Datas {
 

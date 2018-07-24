@@ -14,7 +14,7 @@ import visao.FrmEditarPaciente;
 
 public class EditarPacienteControle {
 
-    private DAOPaciente daoPaciente;    
+    private DAOPaciente daoPaciente;
     private FrmEditarPaciente visaoEditarPaciente;
     private ActionListener actionListener;
 
@@ -24,8 +24,8 @@ public class EditarPacienteControle {
         evtBotaoCancelar();
         evtBotaoSalvar();
     }
-    
-    private void evtBotaoSalvar(){
+
+    private void evtBotaoSalvar() {
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -43,7 +43,7 @@ public class EditarPacienteControle {
                 String celular = visaoEditarPaciente.getTxtCelular().getText();
                 String email = visaoEditarPaciente.getTxtEmail().getText();
                 Convenio tipoConvenio = (Convenio) visaoEditarPaciente.getCmbBoxConvenio().getSelectedItem();
-                
+
                 Paciente novoPaciente = new Paciente();
                 novoPaciente.setId(id);
                 novoPaciente.setNome(nome);
@@ -54,19 +54,19 @@ public class EditarPacienteControle {
                 novoPaciente.setTelefoneCelular(celular);
                 novoPaciente.setEmail(email);
                 novoPaciente.setTipoConvenio(tipoConvenio);
-                
+
                 daoPaciente.conectar();
                 daoPaciente.alterar(novoPaciente);
                 daoPaciente.desconectar();
-                JOptionPane.showMessageDialog(null, "Paciente Editado com Sucesso!", "Sucesso", 1);                
+                JOptionPane.showMessageDialog(null, "Paciente Editado com Sucesso!", "Sucesso", 1);
                 visaoEditarPaciente.dispose();
-                
+
             }
         };
         visaoEditarPaciente.getBtnSalvar().addActionListener(actionListener);
     }
-    
-    private void evtBotaoCancelar(){
+
+    private void evtBotaoCancelar() {
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {

@@ -130,8 +130,8 @@ public class ListagemPacientesControle {
         };
         visaoListagem.getBtnExcluir().addActionListener(actionListener);
     }
-    
-    private void evtBotaoNovo(){
+
+    private void evtBotaoNovo() {
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {

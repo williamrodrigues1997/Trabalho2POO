@@ -113,8 +113,8 @@ public class ListagemConsultasControle {
         };
         visaoListagem.getBtnDesmarcar().addActionListener(actionListener);
     }
-    
-    private void evtBotaoNova(){
+
+    private void evtBotaoNova() {
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -125,8 +125,8 @@ public class ListagemConsultasControle {
         };
         visaoListagem.getBtnNova().addActionListener(actionListener);
     }
-    
-    private void evtBotaoAtualizar(){
+
+    private void evtBotaoAtualizar() {
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
