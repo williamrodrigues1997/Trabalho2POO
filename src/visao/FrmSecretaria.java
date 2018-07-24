@@ -56,7 +56,9 @@ public class FrmSecretaria extends javax.swing.JFrame {
 
         btnFechar.setBackground(new java.awt.Color(255, 153, 153));
         btnFechar.setText("Fechar");
-        getContentPane().add(btnFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
+        btnFechar.setBorderPainted(false);
+        btnFechar.setFocusPainted(false);
+        getContentPane().add(btnFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 270, -1, -1));
 
         jPanelConsultas.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)), "Gerenciar Consultas", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 

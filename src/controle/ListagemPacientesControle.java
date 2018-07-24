@@ -4,6 +4,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import modelo.Consulta;
+import modelo.DAOConsulta;
 import modelo.DAOPaciente;
 import modelo.Paciente;
 import visao.FrmCadastroPaciente;
@@ -117,9 +119,20 @@ public class ListagemPacientesControle {
                     JOptionPane.showMessageDialog(null, "Nenhum Paciente selecionado!", "Erro", 0);
                 } else {
                     String nome = visaoListagem.getjTblPacientes().getValueAt(linha, 1).toString();
-                    int opcao = JOptionPane.showConfirmDialog(null, "Confirma a exclusão do Paciente " + nome + " ?", "Confirmação", JOptionPane.YES_NO_OPTION);
-                    if (opcao == 0) {
+                    int opcao = JOptionPane.showConfirmDialog(null, "Confirma a exclusão do Paciente " + nome + " ? "
+                            + "\nTodas as consultas associadas ao mesmo serão excluidas.", "Confirmação", JOptionPane.YES_NO_OPTION);
+                    if (opcao == 0) {                                                
                         Integer id = (Integer) visaoListagem.getjTblPacientes().getValueAt(linha, 0);
+                        
+                        DAOConsulta daoCOnsulta = new DAOConsulta();
+                        daoCOnsulta.conectar();
+                        for(Consulta consulta: daoCOnsulta.getLista()){
+                            if(consulta.getPaciente().getId().equals(id)){
+                                daoCOnsulta.remover(consulta.getId());
+                            }
+                        }
+                        daoCOnsulta.desconectar();
+                        
                         daoPaciente.conectar();
                         daoPaciente.remover(id);
                         daoPaciente.desconectar();
