@@ -5,8 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modelo.Convenio;
 import modelo.DAOPaciente;
@@ -72,28 +70,47 @@ public class CadastroPacienteControle {
     }
 
     private boolean validaCadastroPaciente(Paciente paciente) {
-        
+
         restauraCorCampos();
-        
+
         if (paciente.getNome().equals("")) {
-            JOptionPane.showMessageDialog(null, "O campo 'Nome' é obrigatóorio!", "Erro na Validação", 0);
+            JOptionPane.showMessageDialog(null, "O campo 'Nome' é obrigatório!", "Erro na Validação", 0);
             visaoCadastroPaciente.getTxtNome().requestFocus();
             visaoCadastroPaciente.getTxtNome().setBackground(Color.yellow);
             return false;
         }
+        
+        daoPaciente.conectar();
+        for (Paciente p : daoPaciente.getLista()) {
+            if (p.getCpf().equals(paciente.getCpf())) {
+                JOptionPane.showMessageDialog(null, "Já existe um paciente cadastrado com este CPF!", "Erro na Validação", 0);
+                visaoCadastroPaciente.getTxtCpf().requestFocus();
+                visaoCadastroPaciente.getTxtCpf().setBackground(Color.yellow);
+                daoPaciente.desconectar();
+                return false;
+            }
+            if(p.getRg().equals(paciente.getRg())){
+                JOptionPane.showMessageDialog(null, "Já existe um paciente cadastrado com este RG!", "Erro na Validação", 0);
+                visaoCadastroPaciente.getTxtRg().requestFocus();
+                visaoCadastroPaciente.getTxtRg().setBackground(Color.yellow);
+                daoPaciente.desconectar();
+                return false;
+            }
+        }        
+        daoPaciente.desconectar();
+        
         if (paciente.getCpf().equals("")) {
-            JOptionPane.showMessageDialog(null, "O campo 'CPF' é obrigatóorio!", "Erro na Validação", 0);
+            JOptionPane.showMessageDialog(null, "O campo 'CPF' é obrigatório!", "Erro na Validação", 0);
             visaoCadastroPaciente.getTxtCpf().requestFocus();
             visaoCadastroPaciente.getTxtCpf().setBackground(Color.yellow);
             return false;
-        }
+        }                       
         if (paciente.getRg().equals("")) {
-            JOptionPane.showMessageDialog(null, "O campo 'RG' é obrigatóorio!", "Erro na Validação", 0);
+            JOptionPane.showMessageDialog(null, "O campo 'RG' é obrigatório!", "Erro na Validação", 0);
             visaoCadastroPaciente.getTxtRg().requestFocus();
             visaoCadastroPaciente.getTxtRg().setBackground(Color.yellow);
             return false;
-        }
-
+        }                       
         if (paciente.getDataNascimento() == null) {
             JOptionPane.showMessageDialog(null, "O campo 'Data de Nascimento' é obrigatóorio!"
                     + "\nFormato correto de data: Dia/Mês/Ano", "Erro na Validação", 0);
@@ -103,7 +120,7 @@ public class CadastroPacienteControle {
         }
 
         if (paciente.getEndereco().equals("")) {
-            JOptionPane.showMessageDialog(null, "O campo 'Endereço' é obrigatóorio!", "Erro na Validação", 0);
+            JOptionPane.showMessageDialog(null, "O campo 'Endereço' é obrigatório!", "Erro na Validação", 0);
             visaoCadastroPaciente.getTxtEndereco().requestFocus();
             visaoCadastroPaciente.getTxtEndereco().setBackground(Color.yellow);
             return false;
@@ -111,8 +128,8 @@ public class CadastroPacienteControle {
 
         return true;
     }
-    
-    private void restauraCorCampos(){
+
+    private void restauraCorCampos() {
         visaoCadastroPaciente.getTxtNome().setBackground(Color.white);
         visaoCadastroPaciente.getTxtCpf().setBackground(Color.white);
         visaoCadastroPaciente.getTxtRg().setBackground(Color.white);

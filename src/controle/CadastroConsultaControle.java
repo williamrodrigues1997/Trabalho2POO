@@ -5,8 +5,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modelo.Consulta;
 import modelo.DAOConsulta;
@@ -76,7 +74,7 @@ public class CadastroConsultaControle {
         restauraCorCampos();
         
         if(consulta.getData() == null){
-            JOptionPane.showMessageDialog(null, "O campo 'Data' é obrigatóorio!"
+            JOptionPane.showMessageDialog(null, "O campo 'Data' é obrigatório!"
                     + "\nFormato correto de data: Dia/Mês/Ano", "Erro na Validação", 0);
             visaoCadastroConsulta.getTxtData().requestFocus();
             visaoCadastroConsulta.getTxtData().setBackground(Color.yellow);
@@ -84,21 +82,21 @@ public class CadastroConsultaControle {
         }
         
         if(consulta.getHorario().equals("")){
-            JOptionPane.showMessageDialog(null, "O campo 'Horário' é obrigatóorio!", "Erro na Validação", 0);
+            JOptionPane.showMessageDialog(null, "O campo 'Horário' é obrigatório!", "Erro na Validação", 0);
             visaoCadastroConsulta.getTxtHorario().requestFocus();
             visaoCadastroConsulta.getTxtHorario().setBackground(Color.yellow);
             return false;
         }
         
         if(consulta.getMedico().equals("")){
-            JOptionPane.showMessageDialog(null, "O campo 'Médico' é obrigatóorio!", "Erro na Validação", 0);
+            JOptionPane.showMessageDialog(null, "O campo 'Médico' é obrigatório!", "Erro na Validação", 0);
             visaoCadastroConsulta.getTxtMedico().requestFocus();
             visaoCadastroConsulta.getTxtMedico().setBackground(Color.yellow);
             return false;
         }
         
         if(consulta.getPaciente() == null){
-            JOptionPane.showMessageDialog(null, "O campo 'CPF Paciente' é obrigatóorio! "
+            JOptionPane.showMessageDialog(null, "O campo 'CPF Paciente' é obrigatório! "
                     + "\nInforme o CPF de um Paciente já cadastrado no sistema.", "Erro na Validação", 0);
             visaoCadastroConsulta.getTxtHorario().requestFocus();
             visaoCadastroConsulta.getTxtHorario().setBackground(Color.yellow);
