@@ -68,10 +68,12 @@ public class FrmListagemConsultas extends javax.swing.JFrame {
             jTblConsultas.getColumnModel().getColumn(0).setPreferredWidth(10);
         }
 
+        btnNova.setBackground(new java.awt.Color(153, 255, 153));
         btnNova.setText("Agendar Nova");
 
         btnEditar.setText("Editar");
 
+        btnDesmarcar.setBackground(new java.awt.Color(255, 153, 153));
         btnDesmarcar.setText("Desmarcar");
 
         btnFechar.setText("Fechar");

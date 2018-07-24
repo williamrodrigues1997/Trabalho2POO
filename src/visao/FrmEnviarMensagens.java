@@ -47,6 +47,7 @@ public class FrmEnviarMensagens extends javax.swing.JFrame {
         lblTitulo.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         lblTitulo.setText("Enviar Mensagens");
 
+        btnEnviar.setBackground(new java.awt.Color(153, 255, 153));
         btnEnviar.setText("Enviar");
 
         GrupoBtnTipo.add(btnRadioSms);
@@ -57,6 +58,7 @@ public class FrmEnviarMensagens extends javax.swing.JFrame {
 
         lblTipo.setText("Tipo de Mensagem:");
 
+        btnFechar.setBackground(new java.awt.Color(255, 153, 153));
         btnFechar.setText("Fechar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

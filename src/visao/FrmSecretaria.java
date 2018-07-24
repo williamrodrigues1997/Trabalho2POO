@@ -30,120 +30,172 @@ public class FrmSecretaria extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnCadastrarPaciente = new javax.swing.JButton();
-        btnAgendarConsulta = new javax.swing.JButton();
-        btnPacientesCadastrados = new javax.swing.JButton();
-        btnConsultasAgendadas = new javax.swing.JButton();
         lblTitulo = new javax.swing.JLabel();
         btnFechar = new javax.swing.JButton();
-        lblPacientes = new javax.swing.JLabel();
-        lblConsultas = new javax.swing.JLabel();
-        lblRelatorios = new javax.swing.JLabel();
+        jPanelConsultas = new javax.swing.JPanel();
+        btnAgendarConsulta = new javax.swing.JButton();
+        btnConsultasAgendadas = new javax.swing.JButton();
+        jPanelPacientes = new javax.swing.JPanel();
+        btnPacientesCadastrados = new javax.swing.JButton();
+        btnCadastrarPaciente = new javax.swing.JButton();
+        jPanelRelatorios = new javax.swing.JPanel();
         btnRelatorioConsultas = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jPanelMensagens = new javax.swing.JPanel();
         btnEnviarMensagens = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Secretária");
+        setBackground(new java.awt.Color(255, 255, 255));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setResizable(false);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnCadastrarPaciente.setText("Cadastrar Paciente");
-        btnCadastrarPaciente.setMaximumSize(new java.awt.Dimension(143, 23));
-        btnCadastrarPaciente.setMinimumSize(new java.awt.Dimension(143, 23));
-        btnCadastrarPaciente.setPreferredSize(new java.awt.Dimension(143, 23));
+        lblTitulo.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        lblTitulo.setText("Saúde & Cia - Secretária");
+        getContentPane().add(lblTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 6, -1, -1));
 
+        btnFechar.setBackground(new java.awt.Color(255, 153, 153));
+        btnFechar.setText("Fechar");
+        getContentPane().add(btnFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 270, -1, -1));
+
+        jPanelConsultas.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)), "Gerenciar Consultas", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+
+        btnAgendarConsulta.setBackground(new java.awt.Color(153, 255, 153));
         btnAgendarConsulta.setText("Agendar Consulta");
+        btnAgendarConsulta.setBorder(null);
+        btnAgendarConsulta.setBorderPainted(false);
+        btnAgendarConsulta.setFocusPainted(false);
         btnAgendarConsulta.setMaximumSize(new java.awt.Dimension(137, 23));
         btnAgendarConsulta.setMinimumSize(new java.awt.Dimension(137, 23));
         btnAgendarConsulta.setPreferredSize(new java.awt.Dimension(137, 23));
 
-        btnPacientesCadastrados.setText("Pacientes Cadastrados");
-
+        btnConsultasAgendadas.setBackground(new java.awt.Color(204, 204, 255));
         btnConsultasAgendadas.setText("Consultas Agendadas");
+        btnConsultasAgendadas.setBorder(null);
+        btnConsultasAgendadas.setBorderPainted(false);
+        btnConsultasAgendadas.setFocusPainted(false);
 
-        lblTitulo.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        lblTitulo.setText("Saúde & Cia - Secretária");
+        javax.swing.GroupLayout jPanelConsultasLayout = new javax.swing.GroupLayout(jPanelConsultas);
+        jPanelConsultas.setLayout(jPanelConsultasLayout);
+        jPanelConsultasLayout.setHorizontalGroup(
+            jPanelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelConsultasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnConsultasAgendadas, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAgendarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanelConsultasLayout.setVerticalGroup(
+            jPanelConsultasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelConsultasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnAgendarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnConsultasAgendadas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 12, Short.MAX_VALUE))
+        );
 
-        btnFechar.setText("Fechar");
+        getContentPane().add(jPanelConsultas, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 40, 190, 130));
 
-        lblPacientes.setText("Gerenciar Pacientes");
+        jPanelPacientes.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)), "Gerenciar Pacientes", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
-        lblConsultas.setText("Gerenciar Consultas");
+        btnPacientesCadastrados.setBackground(new java.awt.Color(204, 204, 255));
+        btnPacientesCadastrados.setText("Pacientes Cadastrados");
+        btnPacientesCadastrados.setBorder(null);
+        btnPacientesCadastrados.setBorderPainted(false);
+        btnPacientesCadastrados.setFocusPainted(false);
 
-        lblRelatorios.setText("Relatórios");
+        btnCadastrarPaciente.setBackground(new java.awt.Color(153, 255, 153));
+        btnCadastrarPaciente.setText("Cadastrar Paciente");
+        btnCadastrarPaciente.setBorder(null);
+        btnCadastrarPaciente.setBorderPainted(false);
+        btnCadastrarPaciente.setFocusPainted(false);
+        btnCadastrarPaciente.setMaximumSize(new java.awt.Dimension(143, 23));
+        btnCadastrarPaciente.setMinimumSize(new java.awt.Dimension(143, 23));
+        btnCadastrarPaciente.setPreferredSize(new java.awt.Dimension(143, 23));
 
+        javax.swing.GroupLayout jPanelPacientesLayout = new javax.swing.GroupLayout(jPanelPacientes);
+        jPanelPacientes.setLayout(jPanelPacientesLayout);
+        jPanelPacientesLayout.setHorizontalGroup(
+            jPanelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelPacientesLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnCadastrarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPacientesCadastrados, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanelPacientesLayout.setVerticalGroup(
+            jPanelPacientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelPacientesLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCadastrarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(btnPacientesCadastrados, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+
+        getContentPane().add(jPanelPacientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 210, 130));
+
+        jPanelRelatorios.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)), "Relatórios"));
+
+        btnRelatorioConsultas.setBackground(new java.awt.Color(204, 204, 255));
         btnRelatorioConsultas.setText("Relatório de Consultas");
+        btnRelatorioConsultas.setBorderPainted(false);
+        btnRelatorioConsultas.setFocusPainted(false);
         btnRelatorioConsultas.setMaximumSize(new java.awt.Dimension(143, 23));
         btnRelatorioConsultas.setMinimumSize(new java.awt.Dimension(143, 23));
         btnRelatorioConsultas.setPreferredSize(new java.awt.Dimension(143, 23));
 
-        jLabel1.setText("Mensagens");
+        javax.swing.GroupLayout jPanelRelatoriosLayout = new javax.swing.GroupLayout(jPanelRelatorios);
+        jPanelRelatorios.setLayout(jPanelRelatoriosLayout);
+        jPanelRelatoriosLayout.setHorizontalGroup(
+            jPanelRelatoriosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelRelatoriosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnRelatorioConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanelRelatoriosLayout.setVerticalGroup(
+            jPanelRelatoriosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelRelatoriosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnRelatorioConsultas, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
+                .addContainerGap())
+        );
 
+        getContentPane().add(jPanelRelatorios, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 210, 80));
+
+        jPanelMensagens.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)), "Mensagens"));
+
+        btnEnviarMensagens.setBackground(new java.awt.Color(204, 204, 255));
         btnEnviarMensagens.setText("Enviar Mensagens");
+        btnEnviarMensagens.setBorder(null);
+        btnEnviarMensagens.setBorderPainted(false);
+        btnEnviarMensagens.setFocusPainted(false);
         btnEnviarMensagens.setMaximumSize(new java.awt.Dimension(137, 23));
         btnEnviarMensagens.setMinimumSize(new java.awt.Dimension(137, 23));
         btnEnviarMensagens.setPreferredSize(new java.awt.Dimension(137, 23));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanelMensagensLayout = new javax.swing.GroupLayout(jPanelMensagens);
+        jPanelMensagens.setLayout(jPanelMensagensLayout);
+        jPanelMensagensLayout.setHorizontalGroup(
+            jPanelMensagensLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelMensagensLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(btnFechar))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblRelatorios)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblTitulo)
-                            .addComponent(lblPacientes)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(btnRelatorioConsultas, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnPacientesCadastrados, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnCadastrarPaciente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel1)
-                                .addComponent(btnEnviarMensagens, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnAgendarConsulta, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnConsultasAgendadas, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(lblConsultas))))
+                .addComponent(btnEnviarMensagens, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanelMensagensLayout.setVerticalGroup(
+            jPanelMensagensLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelMensagensLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnEnviarMensagens, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
                 .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblTitulo)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblPacientes)
-                    .addComponent(lblConsultas))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCadastrarPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAgendarConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnPacientesCadastrados)
-                    .addComponent(btnConsultasAgendadas))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblRelatorios)
-                    .addComponent(jLabel1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnRelatorioConsultas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnEnviarMensagens, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 27, Short.MAX_VALUE)
-                .addComponent(btnFechar)
-                .addContainerGap())
-        );
+
+        getContentPane().add(jPanelMensagens, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 180, 190, 80));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -191,10 +243,10 @@ public class FrmSecretaria extends javax.swing.JFrame {
     private javax.swing.JButton btnFechar;
     private javax.swing.JButton btnPacientesCadastrados;
     private javax.swing.JButton btnRelatorioConsultas;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel lblConsultas;
-    private javax.swing.JLabel lblPacientes;
-    private javax.swing.JLabel lblRelatorios;
+    private javax.swing.JPanel jPanelConsultas;
+    private javax.swing.JPanel jPanelMensagens;
+    private javax.swing.JPanel jPanelPacientes;
+    private javax.swing.JPanel jPanelRelatorios;
     private javax.swing.JLabel lblTitulo;
     // End of variables declaration//GEN-END:variables
 

@@ -70,12 +70,14 @@ public class FrmListagemPacientes extends javax.swing.JFrame {
 
         btnEditar.setText("Editar");
 
+        btnExcluir.setBackground(new java.awt.Color(255, 153, 153));
         btnExcluir.setText("Excluir");
 
         btnFechar.setText("Fechar");
 
         btnAtualizar.setText("Atualizar Tabela");
 
+        btnNovo.setBackground(new java.awt.Color(153, 255, 153));
         btnNovo.setText("Cadastrar Novo");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

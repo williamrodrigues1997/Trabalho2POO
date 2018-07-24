@@ -80,8 +80,10 @@ public class FrmCadastroPaciente extends javax.swing.JFrame {
 
         cmbBoxConvenio.setModel(new DefaultComboBoxModel<>(Convenio.values()));
 
+        btnCadastrar.setBackground(new java.awt.Color(153, 255, 153));
         btnCadastrar.setText("Cadastrar");
 
+        btnCancelar.setBackground(new java.awt.Color(255, 153, 153));
         btnCancelar.setText("Cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

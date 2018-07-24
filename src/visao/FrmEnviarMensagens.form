@@ -83,6 +83,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnEnviar">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="ff" red="99" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Enviar"/>
       </Properties>
     </Component>
@@ -109,6 +112,9 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnFechar">
       <Properties>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="99" green="99" red="ff" type="rgb"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Fechar"/>
       </Properties>
     </Component>

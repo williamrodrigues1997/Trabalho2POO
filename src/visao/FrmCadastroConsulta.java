@@ -67,8 +67,10 @@ public class FrmCadastroConsulta extends javax.swing.JFrame {
 
         cmbBoxTipoConsulta.setModel(new DefaultComboBoxModel<>(TipoConsulta.values()));
 
+        btnAgendar.setBackground(new java.awt.Color(153, 255, 153));
         btnAgendar.setText("Agendar");
 
+        btnCancelar.setBackground(new java.awt.Color(255, 153, 153));
         btnCancelar.setText("Cancelar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

@@ -70,8 +70,10 @@ public class FrmEditarConsulta extends javax.swing.JFrame {
 
         cmbBoxTipoConsulta.setModel(new DefaultComboBoxModel<>(TipoConsulta.values()));
 
+        btnCancelar.setBackground(new java.awt.Color(255, 153, 153));
         btnCancelar.setText("Cancelar");
 
+        btnSalvar.setBackground(new java.awt.Color(153, 255, 153));
         btnSalvar.setText("Salvar");
 
         lblId.setText("ID:");

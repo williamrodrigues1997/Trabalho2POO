@@ -62,8 +62,10 @@ public class FrmGerarRelatorioConsultas extends javax.swing.JFrame {
         grupoFiltro.add(radioBtnSemInfo);
         radioBtnSemInfo.setText("Pacientes SEM informações de Contato");
 
+        btnGerarRelatorio.setBackground(new java.awt.Color(153, 255, 153));
         btnGerarRelatorio.setText("Gerar Relatório");
 
+        btnFechar.setBackground(new java.awt.Color(255, 153, 153));
         btnFechar.setText("Fechar");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

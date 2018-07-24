@@ -80,8 +80,10 @@ public class FrmEditarPaciente extends javax.swing.JFrame {
 
         lblConvenio.setText("Tipo do Convênio:");
 
+        btnCancelar.setBackground(new java.awt.Color(255, 153, 153));
         btnCancelar.setText("Cancelar");
 
+        btnSalvar.setBackground(new java.awt.Color(153, 255, 153));
         btnSalvar.setText("Salvar");
 
         txtId.setEditable(false);
