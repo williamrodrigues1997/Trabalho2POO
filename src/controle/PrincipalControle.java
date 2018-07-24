@@ -38,10 +38,9 @@ public class PrincipalControle {
             @Override
             public void actionPerformed(ActionEvent e) {
                 FrmMedico formMedico = new FrmMedico();
-                DAOPaciente daoPaciente = new DAOPaciente();
                 DAOConsulta daoConsulta = new DAOConsulta();
 
-                MedicoControle medicoControle = new MedicoControle(daoPaciente, daoConsulta, formMedico);
+                MedicoControle medicoControle = new MedicoControle(daoConsulta, formMedico);
                 formMedico.setVisible(true);
             }
         };

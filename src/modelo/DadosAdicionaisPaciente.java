@@ -22,7 +22,7 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Table(name = "tbl_consulta")
+@Table(name = "tbl_dados_adicionais")
 public class DadosAdicionaisPaciente {
 
     //Atributos
@@ -40,7 +40,7 @@ public class DadosAdicionaisPaciente {
     @Column(length = 100, name = "bebe")
     private boolean bebe;
     
-    @Column(length = 100, name = "conlesterol")
+    @Column(length = 100, name = "colesterol")
     private boolean colesterol;
     
     @Column(length = 100, name = "diabete")
