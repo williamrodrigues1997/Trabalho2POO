@@ -7,6 +7,7 @@ import modelo.DAOPaciente;
 import visao.FrmCadastroConsulta;
 import visao.FrmSecretaria;
 import visao.FrmCadastroPaciente;
+import visao.FrmListagemConsultas;
 import visao.FrmListagemPacientes;
 
 public class SecretariaControle {
@@ -24,6 +25,7 @@ public class SecretariaControle {
         evtBotaoFechar();
         evtBotaoAgendarConsulta();
         evtBotaoPacientesCadastrados();
+        evtBotaoConsultasAgendadas();
     }
 
     public void evtBotaoCadastrarPaciente() {
@@ -49,6 +51,18 @@ public class SecretariaControle {
             }
         };
         visaoSecretaria.getBtnPacientesCadastrados().addActionListener(actionListener);
+    }
+    
+    public void evtBotaoConsultasAgendadas(){
+        actionListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                FrmListagemConsultas formListagemConsultas = new FrmListagemConsultas();
+                ListagemConsultasControle controleListagem = new ListagemConsultasControle(daoConsulta, daoPaciente, formListagemConsultas);
+                formListagemConsultas.setVisible(true);
+            }
+        };
+        visaoSecretaria.getBtnConsultasAgendadas().addActionListener(actionListener);
     }
 
     public void evtBotaoAgendarConsulta() {

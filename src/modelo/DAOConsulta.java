@@ -41,6 +41,7 @@ public class DAOConsulta {
             consulta.setMedico(novaConsulta.getMedico());
             consulta.setPaciente(novaConsulta.getPaciente());
             consulta.setTipo(novaConsulta.getTipo());
+            em.getTransaction().commit();
             return true;
         }
         //Id nao encontrado

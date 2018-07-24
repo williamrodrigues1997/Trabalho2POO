@@ -27,7 +27,7 @@ public class ListagemPacientesControle {
         evtBotaoNovo();
     }
 
-    public void preencheTabela() {
+    private void preencheTabela() {
         DefaultTableModel modelo = (DefaultTableModel) visaoListagem.getjTblPacientes().getModel();
         modelo.setNumRows(0);
         daoPaciente.conectar();

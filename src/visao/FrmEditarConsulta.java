@@ -15,12 +15,12 @@ import modelo.TipoConsulta;
  *
  * @author William
  */
-public class FrmCadastroConsulta extends javax.swing.JFrame {
+public class FrmEditarConsulta extends javax.swing.JFrame {
 
     /**
-     * Creates new form FrmCadastroConsulta
+     * Creates new form FrmEditarConsulta
      */
-    public FrmCadastroConsulta() {
+    public FrmEditarConsulta() {
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -38,22 +38,24 @@ public class FrmCadastroConsulta extends javax.swing.JFrame {
         lblData = new javax.swing.JLabel();
         lblHorario = new javax.swing.JLabel();
         lblMedico = new javax.swing.JLabel();
-        lblCpf = new javax.swing.JLabel();
+        lblCpfPaciente = new javax.swing.JLabel();
         lblTipoConsulta = new javax.swing.JLabel();
-        txtData = new javax.swing.JTextField();
-        txtHorario = new javax.swing.JTextField();
+        txtCpfPaciente = new javax.swing.JTextField();
         txtMedico = new javax.swing.JTextField();
-        txtPaciente = new javax.swing.JTextField();
+        txtHorario = new javax.swing.JTextField();
+        txtData = new javax.swing.JTextField();
         cmbBoxTipoConsulta = new javax.swing.JComboBox<>();
-        btnAgendar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
+        btnSalvar = new javax.swing.JButton();
+        lblId = new javax.swing.JLabel();
+        txtId = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Agendar Consulta");
-        setResizable(false);
+        setTitle("Edição de Consulta");
 
+        lblTitulo.setDisplayedMnemonic('E');
         lblTitulo.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        lblTitulo.setText("Agendar Consulta");
+        lblTitulo.setText("Edição de Consulta");
 
         lblData.setText("Data:");
 
@@ -61,15 +63,19 @@ public class FrmCadastroConsulta extends javax.swing.JFrame {
 
         lblMedico.setText("Médico:");
 
-        lblCpf.setText("CPF Paciente:");
+        lblCpfPaciente.setText("CPF Paciente:");
 
         lblTipoConsulta.setText("Tipo da Consulta:");
 
         cmbBoxTipoConsulta.setModel(new DefaultComboBoxModel<>(TipoConsulta.values()));
 
-        btnAgendar.setText("Agendar");
-
         btnCancelar.setText("Cancelar");
+
+        btnSalvar.setText("Salvar");
+
+        lblId.setText("ID:");
+
+        txtId.setEditable(false);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -78,32 +84,34 @@ public class FrmCadastroConsulta extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btnCancelar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnAgendar))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(lblTitulo)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(lblCpf)
-                                    .addComponent(lblTipoConsulta)
-                                    .addComponent(lblMedico)
-                                    .addComponent(lblHorario))
+                                .addComponent(lblTipoConsulta)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtPaciente)
-                                    .addComponent(txtMedico)
-                                    .addComponent(txtHorario)
-                                    .addComponent(cmbBoxTipoConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(cmbBoxTipoConsulta, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(57, 57, 57)
-                                .addComponent(lblData)
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(lblMedico)
+                                    .addComponent(lblCpfPaciente)
+                                    .addComponent(lblHorario)
+                                    .addComponent(lblData)
+                                    .addComponent(lblId))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(0, 12, Short.MAX_VALUE)))
-                .addContainerGap())
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(txtHorario, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtMedico, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtCpfPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtId, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(0, 95, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnCancelar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnSalvar)
+                        .addContainerGap())))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -112,28 +120,32 @@ public class FrmCadastroConsulta extends javax.swing.JFrame {
                 .addComponent(lblTitulo)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblId)
+                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblData)
                     .addComponent(txtData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblHorario)
                     .addComponent(txtHorario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblMedico)
                     .addComponent(txtMedico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblCpf)
-                    .addComponent(txtPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(lblCpfPaciente)
+                    .addComponent(txtCpfPaciente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTipoConsulta)
                     .addComponent(cmbBoxTipoConsulta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAgendar)
-                    .addComponent(btnCancelar))
+                    .addComponent(btnCancelar)
+                    .addComponent(btnSalvar))
                 .addContainerGap())
         );
 
@@ -157,50 +169,56 @@ public class FrmCadastroConsulta extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmCadastroConsulta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmEditarConsulta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmCadastroConsulta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmEditarConsulta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmCadastroConsulta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmEditarConsulta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmCadastroConsulta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmEditarConsulta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmCadastroConsulta().setVisible(true);
+                new FrmEditarConsulta().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAgendar;
     private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnSalvar;
     private javax.swing.JComboBox<TipoConsulta> cmbBoxTipoConsulta;
-    private javax.swing.JLabel lblCpf;
+    private javax.swing.JLabel lblCpfPaciente;
     private javax.swing.JLabel lblData;
     private javax.swing.JLabel lblHorario;
+    private javax.swing.JLabel lblId;
     private javax.swing.JLabel lblMedico;
     private javax.swing.JLabel lblTipoConsulta;
     private javax.swing.JLabel lblTitulo;
+    private javax.swing.JTextField txtCpfPaciente;
     private javax.swing.JTextField txtData;
     private javax.swing.JTextField txtHorario;
+    private javax.swing.JTextField txtId;
     private javax.swing.JTextField txtMedico;
-    private javax.swing.JTextField txtPaciente;
     // End of variables declaration//GEN-END:variables
-
-    public JButton getBtnAgendar() {
-        return btnAgendar;
-    }
 
     public JButton getBtnCancelar() {
         return btnCancelar;
     }
 
+    public JButton getBtnSalvar() {
+        return btnSalvar;
+    }
+
     public JComboBox<TipoConsulta> getCmbBoxTipoConsulta() {
         return cmbBoxTipoConsulta;
+    }
+
+    public JTextField getTxtCpfPaciente() {
+        return txtCpfPaciente;
     }
 
     public JTextField getTxtData() {
@@ -211,14 +229,14 @@ public class FrmCadastroConsulta extends javax.swing.JFrame {
         return txtHorario;
     }
 
+    public JTextField getTxtId() {
+        return txtId;
+    }
+
     public JTextField getTxtMedico() {
         return txtMedico;
     }
 
-    public JTextField getTxtPaciente() {
-        return txtPaciente;
-    }
-
     
-
+    
 }

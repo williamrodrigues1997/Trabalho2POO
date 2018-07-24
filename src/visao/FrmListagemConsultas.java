@@ -12,12 +12,12 @@ import javax.swing.JTable;
  *
  * @author William
  */
-public class FrmListagemPacientes extends javax.swing.JFrame {
+public class FrmListagemConsultas extends javax.swing.JFrame {
 
     /**
-     * Creates new form FrmListagemPacientes
+     * Creates new form FrmListagemConsultas
      */
-    public FrmListagemPacientes() {
+    public FrmListagemConsultas() {
         initComponents();
         setLocationRelativeTo(null);
     }
@@ -33,50 +33,49 @@ public class FrmListagemPacientes extends javax.swing.JFrame {
 
         lblTitulo = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTblPacientes = new javax.swing.JTable();
+        jTblConsultas = new javax.swing.JTable();
+        btnNova = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
-        btnExcluir = new javax.swing.JButton();
+        btnDesmarcar = new javax.swing.JButton();
         btnFechar = new javax.swing.JButton();
         btnAtualizar = new javax.swing.JButton();
-        btnNovo = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Gerenciar Pacientes");
-        setResizable(false);
+        setTitle("Gerenciar Consultas");
 
         lblTitulo.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        lblTitulo.setText("Pacientes Cadastrados");
+        lblTitulo.setText("Consultas Agendadas");
 
-        jTblPacientes.setModel(new javax.swing.table.DefaultTableModel(
+        jTblConsultas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "ID", "Nome", "CPF", "RG", "Nascimento", "Endereço", "Celular", "E-Mail", "Convênio"
+                "ID", "Data", "Horário", "Médico", "Paciente", "CPF Paciente", "Tipo"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane1.setViewportView(jTblPacientes);
-        if (jTblPacientes.getColumnModel().getColumnCount() > 0) {
-            jTblPacientes.getColumnModel().getColumn(0).setPreferredWidth(20);
+        jScrollPane1.setViewportView(jTblConsultas);
+        if (jTblConsultas.getColumnModel().getColumnCount() > 0) {
+            jTblConsultas.getColumnModel().getColumn(0).setPreferredWidth(10);
         }
+
+        btnNova.setText("Agendar Nova");
 
         btnEditar.setText("Editar");
 
-        btnExcluir.setText("Excluir");
+        btnDesmarcar.setText("Desmarcar");
 
         btnFechar.setText("Fechar");
 
         btnAtualizar.setText("Atualizar Tabela");
-
-        btnNovo.setText("Cadastrar Novo");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,17 +84,17 @@ public class FrmListagemPacientes extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 716, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblTitulo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnAtualizar))
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnNovo)
+                        .addComponent(btnNova)
                         .addGap(18, 18, 18)
                         .addComponent(btnEditar)
                         .addGap(18, 18, 18)
-                        .addComponent(btnExcluir)
+                        .addComponent(btnDesmarcar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnFechar)))
                 .addContainerGap())
@@ -103,18 +102,18 @@ public class FrmListagemPacientes extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(14, 14, 14)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblTitulo)
                     .addComponent(btnAtualizar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnFechar)
-                    .addComponent(btnExcluir)
+                    .addComponent(btnNova)
                     .addComponent(btnEditar)
-                    .addComponent(btnNovo))
+                    .addComponent(btnDesmarcar)
+                    .addComponent(btnFechar))
                 .addContainerGap())
         );
 
@@ -138,59 +137,59 @@ public class FrmListagemPacientes extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmListagemPacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmListagemConsultas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmListagemPacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmListagemConsultas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmListagemPacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmListagemConsultas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmListagemPacientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmListagemConsultas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmListagemPacientes().setVisible(true);
+                new FrmListagemConsultas().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAtualizar;
+    private javax.swing.JButton btnDesmarcar;
     private javax.swing.JButton btnEditar;
-    private javax.swing.JButton btnExcluir;
     private javax.swing.JButton btnFechar;
-    private javax.swing.JButton btnNovo;
+    private javax.swing.JButton btnNova;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTblPacientes;
+    private javax.swing.JTable jTblConsultas;
     private javax.swing.JLabel lblTitulo;
     // End of variables declaration//GEN-END:variables
 
-    public JButton getBtnEditar() {
-        return btnEditar;
+    public JButton getBtnDesmarcar() {
+        return btnDesmarcar;
     }
 
-    public JButton getBtnExcluir() {
-        return btnExcluir;
+    public JButton getBtnEditar() {
+        return btnEditar;
     }
 
     public JButton getBtnFechar() {
         return btnFechar;
     }
 
-    public JTable getjTblPacientes() {
-        return jTblPacientes;
+    public JButton getBtnNova() {
+        return btnNova;
+    }
+
+    public JTable getjTblConsultas() {
+        return jTblConsultas;
     }
 
     public JButton getBtnAtualizar() {
         return btnAtualizar;
     }
 
-    public JButton getBtnNovo() {
-        return btnNovo;
-    }
+    
 
-    
-    
 }

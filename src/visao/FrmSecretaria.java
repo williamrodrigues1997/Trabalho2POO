@@ -36,10 +36,10 @@ public class FrmSecretaria extends javax.swing.JFrame {
         btnConsultasAgendadas = new javax.swing.JButton();
         lblTitulo = new javax.swing.JLabel();
         btnFechar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblPacientes = new javax.swing.JLabel();
+        lblConsultas = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Secretária");
         setResizable(false);
 
@@ -56,9 +56,9 @@ public class FrmSecretaria extends javax.swing.JFrame {
 
         btnFechar.setText("Fechar");
 
-        jLabel1.setText("Gerenciar Pacientes");
+        lblPacientes.setText("Gerenciar Pacientes");
 
-        jLabel2.setText("Gerenciar Consultas");
+        lblConsultas.setText("Gerenciar Consultas");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -70,10 +70,10 @@ public class FrmSecretaria extends javax.swing.JFrame {
                     .addComponent(lblTitulo)
                     .addComponent(btnCadastrarPaciente)
                     .addComponent(btnPacientesCadastrados)
-                    .addComponent(jLabel1))
+                    .addComponent(lblPacientes))
                 .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
+                    .addComponent(lblConsultas)
                     .addComponent(btnAgendarConsulta)
                     .addComponent(btnConsultasAgendadas))
                 .addGap(0, 16, Short.MAX_VALUE))
@@ -89,8 +89,8 @@ public class FrmSecretaria extends javax.swing.JFrame {
                 .addComponent(lblTitulo)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
+                    .addComponent(lblPacientes)
+                    .addComponent(lblConsultas))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCadastrarPaciente)
@@ -148,8 +148,8 @@ public class FrmSecretaria extends javax.swing.JFrame {
     private javax.swing.JButton btnConsultasAgendadas;
     private javax.swing.JButton btnFechar;
     private javax.swing.JButton btnPacientesCadastrados;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblConsultas;
+    private javax.swing.JLabel lblPacientes;
     private javax.swing.JLabel lblTitulo;
     // End of variables declaration//GEN-END:variables
 
