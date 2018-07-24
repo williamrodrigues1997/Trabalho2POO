@@ -42,6 +42,7 @@ public class FrmListagemConsultas extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Gerenciar Consultas");
+        setResizable(false);
 
         lblTitulo.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         lblTitulo.setText("Consultas Agendadas");

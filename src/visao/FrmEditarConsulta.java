@@ -52,6 +52,7 @@ public class FrmEditarConsulta extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Edição de Consulta");
+        setResizable(false);
 
         lblTitulo.setDisplayedMnemonic('E');
         lblTitulo.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N

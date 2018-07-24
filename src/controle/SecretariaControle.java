@@ -7,6 +7,7 @@ import modelo.DAOPaciente;
 import visao.FrmCadastroConsulta;
 import visao.FrmSecretaria;
 import visao.FrmCadastroPaciente;
+import visao.FrmGerarRelatorioConsultas;
 import visao.FrmListagemConsultas;
 import visao.FrmListagemPacientes;
 
@@ -26,9 +27,10 @@ public class SecretariaControle {
         evtBotaoAgendarConsulta();
         evtBotaoPacientesCadastrados();
         evtBotaoConsultasAgendadas();
+        evtBotaoRelatorioConsultas();
     }
 
-    public void evtBotaoCadastrarPaciente() {
+    private void evtBotaoCadastrarPaciente() {
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -40,7 +42,7 @@ public class SecretariaControle {
         visaoSecretaria.getBtnCadastrarPaciente().addActionListener(actionListener);
     }
     
-    public void evtBotaoPacientesCadastrados(){
+    private void evtBotaoPacientesCadastrados(){
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -53,7 +55,7 @@ public class SecretariaControle {
         visaoSecretaria.getBtnPacientesCadastrados().addActionListener(actionListener);
     }
     
-    public void evtBotaoConsultasAgendadas(){
+    private void evtBotaoConsultasAgendadas(){
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -65,7 +67,7 @@ public class SecretariaControle {
         visaoSecretaria.getBtnConsultasAgendadas().addActionListener(actionListener);
     }
 
-    public void evtBotaoAgendarConsulta() {
+    private void evtBotaoAgendarConsulta() {
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -78,7 +80,7 @@ public class SecretariaControle {
         visaoSecretaria.getBtnAgendarConsulta().addActionListener(actionListener);
     }
 
-    public void evtBotaoFechar() {
+    private void evtBotaoFechar() {
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -86,5 +88,18 @@ public class SecretariaControle {
             }
         };
         visaoSecretaria.getBtnFechar().addActionListener(actionListener);
+    }
+    
+    private void evtBotaoRelatorioConsultas(){
+        actionListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                FrmGerarRelatorioConsultas formGerarRelatorioConsulta = new FrmGerarRelatorioConsultas();
+                GerarRelatorioConsultasControle controleGerar = new GerarRelatorioConsultasControle(formGerarRelatorioConsulta);
+                formGerarRelatorioConsulta.setVisible(true);
+                
+            }
+        };
+        visaoSecretaria.getBtnRelatorioConsultas().addActionListener(actionListener);
     }
 }

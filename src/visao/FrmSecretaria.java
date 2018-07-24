@@ -38,6 +38,8 @@ public class FrmSecretaria extends javax.swing.JFrame {
         btnFechar = new javax.swing.JButton();
         lblPacientes = new javax.swing.JLabel();
         lblConsultas = new javax.swing.JLabel();
+        lblRelatorios = new javax.swing.JLabel();
+        btnRelatorioConsultas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Secretária");
@@ -60,6 +62,10 @@ public class FrmSecretaria extends javax.swing.JFrame {
 
         lblConsultas.setText("Gerenciar Consultas");
 
+        lblRelatorios.setText("Relatórios");
+
+        btnRelatorioConsultas.setText("Relatório de Consultas");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -67,20 +73,31 @@ public class FrmSecretaria extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblTitulo)
-                    .addComponent(btnCadastrarPaciente)
-                    .addComponent(btnPacientesCadastrados)
-                    .addComponent(lblPacientes))
-                .addGap(8, 8, 8)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblConsultas)
-                    .addComponent(btnAgendarConsulta)
-                    .addComponent(btnConsultasAgendadas))
-                .addGap(0, 16, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnFechar)
-                .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnFechar))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(lblRelatorios)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(lblTitulo)
+                                    .addComponent(lblPacientes)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(btnCadastrarPaciente, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(btnPacientesCadastrados, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGap(8, 8, 8)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lblConsultas)
+                                    .addComponent(btnConsultasAgendadas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(btnAgendarConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(btnRelatorioConsultas))
+                        .addGap(0, 16, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,7 +116,11 @@ public class FrmSecretaria extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnPacientesCadastrados)
                     .addComponent(btnConsultasAgendadas))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(lblRelatorios)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnRelatorioConsultas)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnFechar)
                 .addContainerGap())
         );
@@ -148,8 +169,10 @@ public class FrmSecretaria extends javax.swing.JFrame {
     private javax.swing.JButton btnConsultasAgendadas;
     private javax.swing.JButton btnFechar;
     private javax.swing.JButton btnPacientesCadastrados;
+    private javax.swing.JButton btnRelatorioConsultas;
     private javax.swing.JLabel lblConsultas;
     private javax.swing.JLabel lblPacientes;
+    private javax.swing.JLabel lblRelatorios;
     private javax.swing.JLabel lblTitulo;
     // End of variables declaration//GEN-END:variables
 
@@ -171,6 +194,10 @@ public class FrmSecretaria extends javax.swing.JFrame {
 
     public JButton getBtnFechar() {
         return btnFechar;
+    }
+
+    public JButton getBtnRelatorioConsultas() {
+        return btnRelatorioConsultas;
     }
 
     

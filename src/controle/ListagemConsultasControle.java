@@ -82,7 +82,7 @@ public class ListagemConsultasControle {
         visaoListagem.getBtnEditar().addActionListener(actionListener);
     }
 
-    public void evtBotaoFechar() {
+    private void evtBotaoFechar() {
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -92,7 +92,7 @@ public class ListagemConsultasControle {
         visaoListagem.getBtnFechar().addActionListener(actionListener);
     }
 
-    public void evtBotaoDesmarcar() {
+    private void evtBotaoDesmarcar() {
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -114,7 +114,7 @@ public class ListagemConsultasControle {
         visaoListagem.getBtnDesmarcar().addActionListener(actionListener);
     }
     
-    public void evtBotaoNova(){
+    private void evtBotaoNova(){
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -126,7 +126,7 @@ public class ListagemConsultasControle {
         visaoListagem.getBtnNova().addActionListener(actionListener);
     }
     
-    public void evtBotaoAtualizar(){
+    private void evtBotaoAtualizar(){
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {

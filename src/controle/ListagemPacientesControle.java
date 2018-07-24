@@ -47,7 +47,7 @@ public class ListagemPacientesControle {
         daoPaciente.desconectar();
     }
 
-    public void evtBotaoFechar() {
+    private void evtBotaoFechar() {
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -57,7 +57,7 @@ public class ListagemPacientesControle {
         visaoListagem.getBtnFechar().addActionListener(actionListener);
     }
 
-    public void evtBotaoEditar() {
+    private void evtBotaoEditar() {
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -98,7 +98,7 @@ public class ListagemPacientesControle {
         visaoListagem.getBtnEditar().addActionListener(actionListener);
     }
 
-    public void evtBotaoAtualizar() {
+    private void evtBotaoAtualizar() {
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -108,7 +108,7 @@ public class ListagemPacientesControle {
         visaoListagem.getBtnAtualizar().addActionListener(actionListener);
     }
 
-    public void evtBotaoExcluir() {
+    private void evtBotaoExcluir() {
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -131,7 +131,7 @@ public class ListagemPacientesControle {
         visaoListagem.getBtnExcluir().addActionListener(actionListener);
     }
     
-    public void evtBotaoNovo(){
+    private void evtBotaoNovo(){
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {

@@ -27,7 +27,7 @@ public class EditarConsultaControle {
         evtBotaoSalvar();
     }
     
-    public void evtBotaoCancelar(){
+    private void evtBotaoCancelar(){
         actionlistener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -40,7 +40,7 @@ public class EditarConsultaControle {
         visaoEditarConsulta.getBtnCancelar().addActionListener(actionlistener);
     }
     
-    public void evtBotaoSalvar(){
+    private void evtBotaoSalvar(){
         actionlistener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {

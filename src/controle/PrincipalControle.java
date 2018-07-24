@@ -17,7 +17,7 @@ public class PrincipalControle {
         evtBotaoSecretaria();
     }
 
-    public void evtBotaoSecretaria() {
+    private void evtBotaoSecretaria() {
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {

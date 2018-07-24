@@ -25,7 +25,7 @@ public class CadastroPacienteControle {
         evtBotaoCancelar();
     }
 
-    public void evtBotaoCadastrar() {
+    private void evtBotaoCadastrar() {
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -69,7 +69,7 @@ public class CadastroPacienteControle {
         visaoCadastroPaciente.getBtnCadastrar().addActionListener(actionListener);
     }
 
-    public void evtBotaoCancelar() {
+    private void evtBotaoCancelar() {
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {

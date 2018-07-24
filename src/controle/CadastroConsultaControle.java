@@ -27,7 +27,7 @@ public class CadastroConsultaControle {
         evtBotaoAgendar();
     }
 
-    public void evtBotaoAgendar() {
+    private void evtBotaoAgendar() {
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -69,7 +69,7 @@ public class CadastroConsultaControle {
         visaoCadastroConsulta.getBtnAgendar().addActionListener(actionListener);
     }
 
-    public void evtBotaoCancelar() {
+    private void evtBotaoCancelar() {
         actionListener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {

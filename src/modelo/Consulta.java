@@ -103,8 +103,7 @@ public class Consulta {
 
     @Override
     public String toString() {
-        return "ID: " + this.id
-                + "\nData: " + Datas.formatoData.format(this.data)
+        return "Data: " + Datas.formatoData.format(this.data)
                 + "\nHorario: " + this.horario
                 + "\nMedico: " + this.medico
                 + "\nPaciente: " + this.paciente.getNome()
